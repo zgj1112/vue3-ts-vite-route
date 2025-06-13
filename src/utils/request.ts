@@ -8,7 +8,6 @@ import { useRouter, Router } from "vue-router";
 import storeage from "store";
 import { useStore } from "src/store/index";
 import { refreshToken, getApi } from "@api/login";
-
 const router: Router = useRouter();
 
 let ACCESS_TOKEN = "token";
@@ -64,7 +63,7 @@ instance.interceptors.response.use(
 
       // 如果没有refreshToken,则退出
       if (!oldrefreshtoken) {
-        // router.push({ path: "/user/login" });
+        router.push({ path: "/user/login" });
         // let originurl = window.location.origin;
         // window.location.href = originurl;
         return;
