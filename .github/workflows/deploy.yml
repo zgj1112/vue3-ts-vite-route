@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main
+      - main # ⚠️ 当 main 分支发生 push 时触发部署
 
 jobs:
   build-and-deploy:
@@ -13,7 +13,7 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
@@ -24,10 +24,10 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Deploy to GitHub Pages (main branch)
+      - name: Deploy to build-dev branch
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
-          publish_branch: build-dev
+          publish_branch: build-dev 
           force_orphan: true   # 可选：确保构建结果独立提交，避免污染历史
