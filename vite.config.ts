@@ -4,7 +4,7 @@ import path from "path";
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "/website/",
+  base: "/vue3-ts-vite-route/",
   server: {
     host: "0.0.0.0",
     port: 8080,
