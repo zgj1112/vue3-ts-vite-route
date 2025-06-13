@@ -29,5 +29,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
-          publish_branch: main
+          publish_branch: build-dev
           force_orphan: true   # 可选：确保构建结果独立提交，避免污染历史
